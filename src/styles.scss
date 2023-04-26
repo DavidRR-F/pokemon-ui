@@ -111,4 +111,26 @@ $types: (
       font-size: small;
     }
   }
+
+  ::-webkit-scrollbar {
+    width: 1rem;
+    background: transparent;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--selection-background);
+    border: 0.3rem solid var(--editor-background);
+    border-radius: 0.5rem;
+  }
+
+  /* Handle on hover */
+//   ::-webkit-scrollbar-thumb:hover {
+//     background: var(--color-secondary-shadow-hover);
+//   }
 }
