@@ -1,3 +1,5 @@
+@import '../../../styles.scss';
+
 .search-bar {
     display: flex;
     align-items: center;
@@ -12,8 +14,33 @@
     flex: 1;
     border: none;
     margin-left: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f1f1f1;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: var(--inactive-tab-background);
+    color: var(--search-text);
     font-size: 16px;
+    font-weight: 600;
 }
+
+.select {
+    height: 49px;
+    width: 120px;
+    padding: 0 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--search-text);
+    background-color: var(--inactive-tab-background);
+    border: none;
+    border-radius: 30px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23FFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    margin-left: 10px;
+    &:focus {
+        border-color: var(--active-tab-border-color);
+        //outline: none;
+    }
+  }

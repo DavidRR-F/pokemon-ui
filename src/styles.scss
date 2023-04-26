@@ -27,6 +27,8 @@ $types: (
   --side-bar-background: #252526;
   --side-bar-foreground: #ccc;
 
+  --search-text: #7f7f7f;
+
   // highlighting colors
   --keyword: #c586c0;
   --variable: #9cdcfe;
@@ -125,7 +127,7 @@ $types: (
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: var(--selection-background);
-    border: 0.3rem solid var(--editor-background);
+    border: 0.3rem solid var();
     border-radius: 0.5rem;
   }
 
