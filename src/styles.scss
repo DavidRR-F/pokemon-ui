@@ -1,1 +1,114 @@
 /* You can add global styles to this file, and also import other style files */
+$types: (
+  ("normal", #A8A77A, #6f6d50),
+  ("fire", #EE8130, #a23717),
+  ("water", #6390F0, #234c8e),
+  ("electric", #F7D02C, #7e6519),
+  ("grass", #7AC74C, #3a912f),
+  ("ice", #96D9D6, #4a7371),
+  ("fighting", #C22E28, #e76f6b),
+  ("poison", #A33EA1, #c874ba),
+  ("ground", #E2BF65, #9E7C4C),
+  ("flying", #8fc4f3, #4e687f),
+  ("psychic", #F95587, #B33163),
+  ("bug", #A6B91A, #537019),
+  ("rock", #B6A136, #78641c),
+  ("ghost", #735797, #4B3869),
+  ("dragon", #6F35FC, #4F2D8C),
+  ("dark", #4d4c4b, #a3a3a2),
+  ("steel", #B7B7CE, #6B6B7E),
+  ("fairy", #D685AD, #B6567A)
+);
+
+:root {
+  // Base colors
+  --editor-background: #1e1e1e;
+  --editor-foreground: #d4d4d4;
+  --side-bar-background: #252526;
+  --side-bar-foreground: #ccc;
+
+  // highlighting colors
+  --keyword: #c586c0;
+  --variable: #9cdcfe;
+  --variable-dark: #408ab1;
+  --string: #ce9178;
+  --number: #b5cea8;
+  --function: #dcdcaa;
+  --comment: #6a9955;
+
+  // UI colors
+  --selection-background: #3c3c3c;
+  --inactive-selection-background: #3a3d41;
+  --border: #454545;
+  --active-tab-background: #1e1e1e;
+  --inactive-tab-background: #2d2d2d;
+
+  // Apply colors to your CSS
+  background-color: var(--editor-background);
+  color: var(--editor-foreground);
+
+  .side-bar {
+    background-color: var(--side-bar-background);
+    color: var(--side-bar-foreground);
+  }
+
+  .keyword {
+    color: var(--keyword);
+  }
+
+  .variable {
+    color: var(--variable);
+  }
+
+  .string {
+    color: var(--string);
+  }
+
+  .number {
+    color: var(--number);
+  }
+
+  .function {
+    color: var(--function);
+  }
+
+  .comment {
+    color: var(--comment);
+  }
+
+  .selection {
+    background-color: var(--selection-background);
+  }
+
+  .inactive-selection {
+    background-color: var(--inactive-selection-background);
+  }
+
+  .border {
+    border-color: var(--border);
+  }
+
+  .active-tab {
+    background-color: var(--active-tab-background);
+  }
+
+  .inactive-tab {
+    background-color: var(--inactive-tab-background);
+  }
+
+  @each $type in $types {
+    $name: nth($type, 1);
+    $color: nth($type, 2);
+    $text: nth($type, 3);
+
+    .#{$name} {
+      background-color: $color;
+      color: $text;
+      padding: 2px 5px;
+      border-radius: 5px;
+      font-weight: 600;
+      text-transform: capitalize;
+      font-size: small;
+    }
+  }
+}
