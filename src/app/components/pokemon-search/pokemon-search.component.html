@@ -1,5 +1,9 @@
 <div class="search-bar">
-    <form [formGroup]="searchForm">
+    <form [formGroup]="searchForm" class="search-form">
+        <select name="type" formControlName="filter">
+            <option value="" selected disabled hidden>Type</option>
+            <option *ngFor="let type of pokemonFilter" [value]="type">{{ type }}</option>
+        </select>
         <input formControlName="search" type="text" placeholder="Search..." class="search"/>
     </form>
 </div>

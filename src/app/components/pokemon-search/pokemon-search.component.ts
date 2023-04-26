@@ -11,9 +11,12 @@ import { finalize } from 'rxjs';
 })
 export class PokemonSearchComponent implements OnInit {
 
+  public pokemonFilter: string[] = ["all","normal","fire","water","electric","grass","ice","fighting","poison","ground","flying","psychic","bug","rock","ghost","dragon","dark","steel","fairy"];
+  public selectedFilterOption: string = "Filter by Type";
   searchForm: FormGroup = new FormGroup({
-    search: new FormControl('')
-  })
+    search: new FormControl(''),
+    filter: new FormControl('')
+  });
 
   @Output() searchEvent = new EventEmitter();
 
