@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { SearchPokemon } from 'src/app/models/pokemon.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -15,11 +15,15 @@ export class PokemonSearchComponent implements OnInit {
     search: new FormControl('')
   })
 
+  @Output() searchEvent = new EventEmitter();
+
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
     this.searchForm.get('search')?.valueChanges.subscribe((value) => {
-      
+      //this.searchEvent.emit(value);
+      //console.log(value)
+      this.pokemonService.filterPokemon(value);
     });
   }
 

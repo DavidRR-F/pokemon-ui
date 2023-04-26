@@ -9,6 +9,7 @@ import { PokemonDataComponent } from './components/pokemon-data/pokemon-data.com
 import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.component';
 import { PokemonSearchComponent } from './components/pokemon-search/pokemon-search.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],

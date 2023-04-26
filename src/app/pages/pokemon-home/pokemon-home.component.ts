@@ -10,25 +10,27 @@ import { PokemonService } from 'src/app/services/pokemon.service';
 })
 export class PokemonHomeComponent implements OnInit {
 
-  public pokemonList: SearchPokemon[] = [];
+  public pokemonFilteredList: SearchPokemon[] = [];
   public isLoading: boolean = true;
   public isError: boolean = false;
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.pokemonService.getAllPokemon()
+    this.pokemonService.pokemons$
     .pipe(
       finalize(() => {
         this.isLoading = false;
       })
     )
-    .subscribe((data: SearchPokemon[]) => {
-      this.pokemonList = data;
+    .subscribe((data) => {
+      this.pokemonFilteredList = data;
+      this.isLoading = false;
     },
     (error) => {
       this.isError = true;
-    });
+    })
+    this.pokemonService.getAllPokemon()
   }
 
 }
