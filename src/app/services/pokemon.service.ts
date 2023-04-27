@@ -26,8 +26,12 @@ export class PokemonService {
     });
   }
 
-  filterPokemon(name: string) {
-    let pokemon = this.pokemon.filter(pokemon => pokemon.name.toLowerCase().startsWith(name.toLowerCase()));
-    this.pokemonsSubject.next(pokemon);
+  filterPokemon(name: string, type: string) {
+    let pokemonFiltered = this.pokemon;
+    if(type !== "" && type !== "all") {
+      pokemonFiltered = pokemonFiltered.filter(pokemon => pokemon.type1.toLowerCase().match(type.toLowerCase()) || pokemon.type2?.toLowerCase().match(type.toLowerCase()));
+    }
+    pokemonFiltered = pokemonFiltered.filter(pokemon => pokemon.name.toLowerCase().startsWith(name.toLowerCase()));
+    this.pokemonsSubject.next(pokemonFiltered);
   }
 }

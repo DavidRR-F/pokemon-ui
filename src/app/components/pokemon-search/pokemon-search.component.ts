@@ -18,16 +18,22 @@ export class PokemonSearchComponent implements OnInit {
     filter: new FormControl('')
   });
 
+  private searchText: string = '';
+  private filterType: string = '';
+
   @Output() searchEvent = new EventEmitter();
 
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
     this.searchForm.get('search')?.valueChanges.subscribe((value) => {
-      //this.searchEvent.emit(value);
-      //console.log(value)
-      this.pokemonService.filterPokemon(value);
+      this.searchText = value;
+      this.pokemonService.filterPokemon(this.searchText, this.filterType);
     });
+    this.searchForm.get('filter')?.valueChanges.subscribe((value) => {
+      this.filterType = value;
+      this.pokemonService.filterPokemon(this.searchText, this.filterType);
+    })
   }
 
 }
