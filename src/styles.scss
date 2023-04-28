@@ -119,20 +119,24 @@ $types: (
     background: transparent;
   }
 
-  /* Track */
   ::-webkit-scrollbar-track {
     background-color: transparent;
   }
 
-  /* Handle */
   ::-webkit-scrollbar-thumb {
     background: var(--selection-background);
     border: 0.3rem solid var();
     border-radius: 0.5rem;
   }
 
-  /* Handle on hover */
-//   ::-webkit-scrollbar-thumb:hover {
-//     background: var(--color-secondary-shadow-hover);
-//   }
+}
+
+.cdk-overlay-container {
+  position: fixed;
+  top: 70px;
+  left: 50vw;
+
+  // If you want a fixed width and height, you can set them here:
+  width: 400px;
+  height: 300px;
 }

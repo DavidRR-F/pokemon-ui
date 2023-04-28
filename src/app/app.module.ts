@@ -11,6 +11,8 @@ import { PokemonSearchComponent } from './components/pokemon-search/pokemon-sear
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ImgLazyLoaderDirective } from './directives/img-lazy-loader.directive';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,11 @@ import { ImgLazyLoaderDirective } from './directives/img-lazy-loader.directive';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
