@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SearchPokemon, SimilarPokemon } from 'src/app/models/pokemon.interface';
+import { SearchPokemon } from 'src/app/models/pokemon.interface';
 
 @Component({
   selector: 'app-pokemon-card',

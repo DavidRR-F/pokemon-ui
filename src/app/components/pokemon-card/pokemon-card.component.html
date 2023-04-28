@@ -1,6 +1,8 @@
 <div class="pokemon-card">
-    <div>
-        <img class="pokemon-img" [src]="path+pokemon.pokemon_image" alt="">
+    <div class="img-container">
+        <div class="img-border">
+            <img class="pokemon-img" [src]="path+pokemon.pokemon_image" alt="">
+        </div>
     </div>
     <div class="pokemon-name">{{ pokemon.name }}</div>
     <div class="types">

@@ -10,6 +10,7 @@ import { PokemonCardComponent } from './components/pokemon-card/pokemon-card.com
 import { PokemonSearchComponent } from './components/pokemon-search/pokemon-search.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ImgLazyLoaderDirective } from './directives/img-lazy-loader.directive';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     PokemonSingleComponent,
     PokemonDataComponent,
     PokemonCardComponent,
-    PokemonSearchComponent
+    PokemonSearchComponent,
+    ImgLazyLoaderDirective
   ],
   imports: [
     BrowserModule,
