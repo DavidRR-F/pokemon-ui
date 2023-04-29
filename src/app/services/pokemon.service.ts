@@ -7,7 +7,7 @@ import { SearchPokemon } from '../models/pokemon.interface';
   providedIn: 'root'
 })
 export class PokemonService {
-  baseUrl: string = 'http://localhost';
+  baseUrl: string = 'http://api:8000';
   public modalTrigger: EventEmitter<boolean> = new EventEmitter<boolean>();
   private pokemonsSubject = new BehaviorSubject<SearchPokemon[]>([]);
   public pokemons$ = this.pokemonsSubject.asObservable();
