@@ -1,1 +1,27 @@
-<p>pokemon-data works!</p>
+<div class="pokemon-modal-container">
+    <div *ngIf="!isLoading" class="pokemon-modal">
+        <p>{{ pokemon!.name }}</p>
+        <button mat-button (click)="closeDialog()">Close</button>
+        <div class="pokemon-img-container">
+            <img class="pokemon-img" [src]="path+pokemon.pokemon_image" alt="">
+            <div class="types">
+                <div [class]="pokemon.type1">{{ pokemon.type1 }}</div>
+                <div [class]="pokemon.type2">{{ pokemon.type2 }}</div>
+                <div>{{ pokemon.height_m }}m</div>
+                <div>{{ pokemon.weight_kg }}kg</div>
+            </div>
+            <canvas baseChart class="chart"
+                    [data]="radarChartData"
+                    [options]="radarChartOptions"
+                    [type]="radarChartType">
+            </canvas>
+        </div>
+
+        <div class="pokemon-img-container">
+            <div *ngFor="let pokemon of nearestPokemon">
+                <img class="pokemon-img-nearest" [src]="path+pokemon.pokemon_image" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+

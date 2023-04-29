@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ImgLazyLoaderDirective } from './directives/img-lazy-loader.directive';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

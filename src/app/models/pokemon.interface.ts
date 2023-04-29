@@ -17,7 +17,7 @@ export interface Pokemon {
     type2: string;
     generation: number;
     is_legendary: boolean;
-    classfication: string;
+    classfication: string; // mispelled from csv
     experience_growth: number;
     base_happiness: number;
     base_total: number;
