@@ -18,8 +18,12 @@ export class PokemonCardComponent implements OnInit {
   ngOnInit(): void {}
 
   openDialog(): void {
-    this.dialog.open(PokemonDataComponent, {
+    const dialogRef = this.dialog.open(PokemonDataComponent, {
       data: { id: this.pokemon?.id },
+      disableClose: false
+    });
+    dialogRef.backdropClick().subscribe(() => {
+      dialogRef.close();
     });
   }
 

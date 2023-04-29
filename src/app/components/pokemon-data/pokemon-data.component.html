@@ -1,25 +1,77 @@
 <div class="pokemon-modal-container">
     <div *ngIf="!isLoading" class="pokemon-modal">
-        <p>{{ pokemon!.name }}</p>
-        <button mat-button (click)="closeDialog()">Close</button>
+        <button class="closeModal" mat-button (click)="closeDialog()">X</button>
+        <h1>№ {{ pokemon.pokedex_number }}: {{ pokemon!.name }}</h1>
         <div class="pokemon-img-container">
-            <img class="pokemon-img" [src]="path+pokemon.pokemon_image" alt="">
-            <div class="types">
-                <div [class]="pokemon.type1">{{ pokemon.type1 }}</div>
-                <div [class]="pokemon.type2">{{ pokemon.type2 }}</div>
-                <div>{{ pokemon.height_m }}m</div>
-                <div>{{ pokemon.weight_kg }}kg</div>
-            </div>
-            <canvas baseChart class="chart"
+            <div class="chart">
+                <canvas baseChart
                     [data]="radarChartData"
                     [options]="radarChartOptions"
                     [type]="radarChartType">
-            </canvas>
+                </canvas>
+            </div>
+            <img class="pokemon-img" [src]="path+pokemon.pokemon_image" alt="">
+            <table class="pokedex-info">
+                <tr>
+                    <th>Type</th>
+                    <td class="types">
+                        <div [class]="pokemon.type1">{{ pokemon.type1 }}</div>
+                        <div [class]="pokemon.type2">{{ pokemon.type2 }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Species</th>
+                    <td>{{ pokemon.classfication }}</td>
+                </tr>
+                <tr>
+                    <th>Height</th>
+                    <td>{{ pokemon.height_m }}m</td>
+                </tr>
+                <tr>
+                    <th>Weight</th>
+                    <td>{{ pokemon.weight_kg }}kg</td>
+                </tr>
+                <tr>
+                    <th>Abilities</th>
+                    <td>
+                        <div *ngFor="let ability of pokemon.abilities">
+                            {{ ability }}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>
+                        <div>Male: {{ pokemon.percentage_male }}%</div>
+                        <div>Female: {{ (100-pokemon.percentage_male).toFixed(1) }}%</div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Egg Steps</th>
+                    <td>
+                        {{ pokemon.base_egg_steps }}
+                    </td>
+                </tr>
+                <tr>
+                    <th>Capture Rate</th>
+                    <td>{{ pokemon.capture_rate }}%</td>
+                </tr>
+                <tr>
+                    <th>Base Happiness</th>
+                    <td>{{ pokemon.base_happiness }}</td>
+                </tr>
+                <tr>
+                    <th>Base Total</th>
+                    <td>{{ pokemon.base_total }}</td>
+                </tr>
+            </table>
         </div>
-
-        <div class="pokemon-img-container">
-            <div *ngFor="let pokemon of nearestPokemon">
-                <img class="pokemon-img-nearest" [src]="path+pokemon.pokemon_image" alt="">
+        <div>
+            <h2>Similar Pokemon</h2>
+            <div class="pokemon-img-container">
+                <div *ngFor="let pokemon of nearestPokemon">
+                    <img class="pokemon-img-nearest" [src]="path+pokemon.pokemon_image" alt="">
+                </div>
             </div>
         </div>
     </div>
