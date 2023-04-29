@@ -1,7 +1,6 @@
 @import '../../../styles.scss';
 
 .pokemon-modal-container {
-    //width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -10,8 +9,9 @@
 
 .pokedex-info {
     width: 350px;
+    display: block;
     & > tr:not(:last-child) {
-        border-bottom: 2px solid var(--border);
+        border: 2px solid var(--border);
     }
     tr > th {
         text-align: end;
@@ -20,15 +20,16 @@
 }
 
 .pokemon-modal {
+    position: relative;
     display: grid;
     align-items: center;
     justify-items: center;
-
-    //width: 70vw;
+    width: fit-content;
     margin: 10px;
     padding: 10px;
-    //height: 70vh;
-    background-color: #1e1e1e;
+    background-color: var(--side-bar-background);
+    border: 3px solid var(--inactive-tab-background);
+    box-shadow: 0 0 15px var(--variable);
     border-radius: 10px;
     overflow: hidden;
 }
@@ -41,6 +42,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-wrap: wrap;
+        padding-bottom: 20px;
     }
 
     &-nearest {
@@ -55,6 +58,9 @@
         max-height: 150px;
         margin: 3px;
         transition: all 0.3s ease-in-out;
+        &:hover {
+            border: 3px solid var(--variable-dark);
+        }
     }
 }
 
@@ -88,22 +94,21 @@ h1, h2 {
     height: 30px;
     font-size: 20px;
     font-weight: bold;
-    background-color: #1e1e1e;
-    color: #a1a0a0;
+    background-color: var(--side-bar-background);
+    color: var(--side-bar-foreground);
     cursor: pointer;
     text-align: center;
     line-height: 20px;
     padding: 5px 5px 2px 2px;
     user-select: none;
     transition: color 0.2s, background-color 0.2s, transform 0.2s;
-  }
-  
-  .closeModal:hover {
-    color: #1e1e1e;
-    background-color: #a1a0a0;
-    transform: scale(1.1);
-  }
-  
-  .closeModal:focus {
-    outline: none;
+
+    &:hover {
+        color: var(--side-bar-background);
+        background-color: var(--side-bar-foreground);
+        transform: scale(1.1);
+    }
+    &:focus {
+        outline: none;
+    }
   }

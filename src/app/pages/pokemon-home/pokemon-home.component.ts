@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { finalize } from 'rxjs';
 import { SearchPokemon } from 'src/app/models/pokemon.interface';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -9,6 +9,8 @@ import { PokemonService } from 'src/app/services/pokemon.service';
   styleUrls: ['./pokemon-home.component.scss']
 })
 export class PokemonHomeComponent implements OnInit {
+
+  @ViewChild('main') main: ElementRef;
 
   public pokemonFilteredList: SearchPokemon[] = [];
   public isLoading: boolean = true;
@@ -31,6 +33,14 @@ export class PokemonHomeComponent implements OnInit {
       this.isError = true;
     })
     this.pokemonService.getAllPokemon()
+    this.pokemonService.modalTrigger.subscribe((event) => {
+      console.log(event)
+      if(event.valueOf()){
+        this.main.nativeElement.style.filter = 'blur(8px)';
+      } else {
+        this.main.nativeElement.style.filter = 'blur(0px)';
+      }
+    });
   }
 
 }

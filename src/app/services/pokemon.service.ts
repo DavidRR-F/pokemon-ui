@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SearchPokemon } from '../models/pokemon.interface';
@@ -8,6 +8,7 @@ import { SearchPokemon } from '../models/pokemon.interface';
 })
 export class PokemonService {
   baseUrl: string = 'http://localhost';
+  public modalTrigger: EventEmitter<boolean> = new EventEmitter<boolean>();
   private pokemonsSubject = new BehaviorSubject<SearchPokemon[]>([]);
   public pokemons$ = this.pokemonsSubject.asObservable();
   public pokemon: SearchPokemon[] = [];

@@ -66,14 +66,13 @@
                 </tr>
             </table>
         </div>
-        <div>
-            <h2>Similar Pokemon</h2>
-            <div class="pokemon-img-container">
-                <div *ngFor="let pokemon of nearestPokemon">
-                    <img class="pokemon-img-nearest" [src]="path+pokemon.pokemon_image" alt="">
-                </div>
+        <h2>Similar Pokemon</h2>
+        <div class="pokemon-img-container">
+            <div *ngFor="let pokemon of nearestPokemon">
+                <img (click)="openSimilarModal(pokemon.id)" class="pokemon-img-nearest" [src]="path+pokemon.pokemon_image" alt="">
             </div>
         </div>
     </div>
+    <div *ngIf="isLoading">Loading</div>
 </div>
 

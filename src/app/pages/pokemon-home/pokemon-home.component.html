@@ -1,11 +1,13 @@
-<app-pokemon-search></app-pokemon-search>
-<div *ngIf="!isLoading" class="pokemon-container">
-    <div *ngFor="let pokemon of pokemonFilteredList">
-        <app-pokemon-card
-            [pokemon]="pokemon"
-        ></app-pokemon-card>
+<main #main>
+    <app-pokemon-search></app-pokemon-search>
+    <div *ngIf="!isLoading" class="pokemon-container">
+        <div *ngFor="let pokemon of pokemonFilteredList">
+            <app-pokemon-card
+                [pokemon]="pokemon"
+            ></app-pokemon-card>
+        </div>
     </div>
-</div>
+</main>
 <div *ngIf="isLoading" class="load-spinner">
     Loading...
 </div>
